@@ -1,7 +1,8 @@
 # ocrsim
 An assembler/disassembler/simulator for the microcontroller used in OCR A2 Electronics.
 
-The A2 course specification does not define any of the binary opcodes, so I made them up as follows.
+The A2 course specification does not define any of the binary opcodes, so I made them up as shown below.
+I also added the opcodes TABLE and ADC to replace the subroutines described in the OCR specification.
 
 # Specification
 ```
@@ -47,21 +48,21 @@ DEC Sd  	-	11100DDD xxxxxxxx
 IN Sd,I 	-	00010DDD xxxxxxxx
 	Copy the byte at the input port into Sd
 
-OUT Q,Ss  -	10010xxx xxxxxSSS
+OUT Q,Ss 	-	10010xxx xxxxxSSS
 	Copy the byte in Ss to the output port
 
-JP e    	- 01010xxx EEEEEEEE
+JP e    	-	01010xxx EEEEEEEE
 	Jump to label e 
 
-JZ e     	- 11010xxx EEEEEEEE
+JZ e     	-	11010xxx EEEEEEEE
 	Jump to label e if the result of the last ADD, SUB, AND, EOR, INC, DEC, SHL or 
 	SHR was zero
 
-JNZ e    	- 00110xxx EEEEEEEE
+JNZ e    	-	00110xxx EEEEEEEE
 	Jump to label e if the result of the last ADD, SUB, AND, EOR, INC, DEC SHL or 
 	SHR was not zero 
 
-RCALL s  	- 10110xxx SSSSSSSS
+RCALL s  	- 	0110xxx SSSSSSSS
 	Push the program counter onto the stack to store the return address and then
 	jump to label s
 
@@ -77,9 +78,9 @@ SHR Sd   	-	00001DDD xxxxxxxx
 
 Extra instructions:
 
-TAB Sd, n	-	10001DDD NNNNNNNN
+TABLE Sd, n	-	10001DDD NNNNNNNN
 	Based on the "readtable" subroutine. Sets Sd to the value pointed to by n + S7
 	
-ADC Sd  	- 01001DDD xxxxxxxx
+ADC Sd  	-	01001DDD xxxxxxxx
 	Based on the "readadc" subroutine. Sets Sd to the value of the analogue input.
 ```

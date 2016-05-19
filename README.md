@@ -1,6 +1,8 @@
 # ocrsim
 An assembler/disassembler/simulator for the microcontroller used in OCR A2 Electronics.
 
+Demo: http://davidbuchanan314.github.io/ocrsim/
+
 The A2 course specification does not define any of the binary opcodes, so I made them up as shown below.
 I also added the opcodes TABLE and ADC to replace the subroutines described in the OCR specification.
 
